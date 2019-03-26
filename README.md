@@ -1,0 +1,2 @@
+# AndroidKiosk
+UnityでAndroidキオスクアプリ
