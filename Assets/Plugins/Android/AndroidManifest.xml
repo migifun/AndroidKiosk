@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest 
+      xmlns:android="http://schemas.android.com/apk/res/android" 
+      package="com.migifun.app.AndroidKiosk" 
+      xmlns:tools="http://schemas.android.com/tools" 
+      android:versionName="0.1" 
+      android:versionCode="1" 
+      android:installLocation="preferExternal">
+  <supports-screens 
+      android:smallScreens="true" 
+      android:normalScreens="true" 
+      android:largeScreens="true" 
+      android:xlargeScreens="true" 
+      android:anyDensity="true" />
+  <application 
+      android:theme="@style/UnityThemeSelector" 
+      android:icon="@mipmap/app_icon" 
+      android:label="@string/app_name" 
+      android:debuggable="true" 
+      android:isGame="true" 
+      android:banner="@drawable/app_banner">
+    <activity 
+        android:name=".KioskActivity" 
+        android:label="@string/app_name" 
+        android:screenOrientation="fullSensor" 
+        android:launchMode="singleTask" 
+        android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density" 
+        android:hardwareAccelerated="false">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+    </activity>
+    <meta-data android:name="unity.build-id" android:value="9c62ca95-ce09-4763-be77-8f7f28c404cf" />
+    <meta-data android:name="unity.splash-mode" android:value="0" />
+    <meta-data android:name="unity.splash-enable" android:value="True" />
+    <receiver
+        android:name=".AdminReceiver"
+        android:label="admin"
+        android:permission="android.permission.BIND_DEVICE_ADMIN">
+      <meta-data
+        android:name="android.app.device_admin"
+        android:resource="@xml/admin"/>
+      <intent-filter>
+          <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+      </intent-filter>
+    </receiver>
+  </application>
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="26" />
+  <uses-feature android:glEsVersion="0x00020000" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+  <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+  <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+  <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false" />
+</manifest>
